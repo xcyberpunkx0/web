@@ -120,15 +120,13 @@
     setTimeout(function() {
         console.log('🔍 Running diagnostic checks...');
         
-        // Check if external resources loaded
-        const fontAwesome = document.querySelector('link[href*="font-awesome"]');
-        if (fontAwesome) {
-            console.log('Font Awesome link found:', fontAwesome.href);
+        // Check for offline deployment resources
+        const iconFallbacks = document.querySelector('link[href*="icon-fallbacks"]');
+        if (iconFallbacks) {
+            console.log('Icon fallbacks loaded:', iconFallbacks.href);
+        } else {
+            console.warn('Icon fallbacks not found - icons may not display properly');
         }
-        
-        const googleFonts = document.querySelector('link[href*="fonts.googleapis.com"]');
-        if (googleFonts) {
-            console.log('Google Fonts link found:', googleFonts.href);
         }
         
         // Check if all scripts loaded

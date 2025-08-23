@@ -352,10 +352,10 @@ class IntegrationTestSuite {
             message: `${stylesheets.length} stylesheets, ${scripts.length} scripts loaded`
         });
 
-        // Test 3: Font loading
+        // Test 3: Offline deployment check
         const fontTest = this.testFontLoading();
         this.addTestResult('performance', {
-            test: 'Font loading optimization',
+            test: 'Offline deployment resources',
             passed: fontTest,
             message: fontTest ? 'Fonts optimized' : 'Font loading not optimized'
         });
@@ -528,8 +528,9 @@ class IntegrationTestSuite {
     }
 
     testFontLoading() {
-        const fontLinks = document.querySelectorAll('link[href*="fonts.googleapis.com"]');
-        return fontLinks.length > 0;
+        // Check for offline deployment - system fonts should be used
+        const iconFallbacks = document.querySelector('link[href*="icon-fallbacks"]');
+        return iconFallbacks !== null;
     }
 
     testAnimationPerformance() {

@@ -123,8 +123,8 @@ class ResourceOptimizer {
     preloadCriticalResources() {
         const criticalResources = [
             { href: 'css/styles.css', as: 'style' },
-            { href: 'js/main.js', as: 'script' },
-            { href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600&display=swap', as: 'style' }
+            { href: 'js/main.js', as: 'script' }
+            // External font resources removed for offline deployment
         ];
 
         criticalResources.forEach(resource => {

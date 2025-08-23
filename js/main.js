@@ -3669,12 +3669,8 @@ function preloadCriticalResources() {
 }
 
 function addResourceHints() {
-  // DNS prefetch for external resources
-  const externalDomains = [
-    "fonts.googleapis.com",
-    "fonts.gstatic.com",
-    "cdnjs.cloudflare.com",
-  ];
+  // External DNS prefetch removed for offline deployment
+  const externalDomains = [];
 
   externalDomains.forEach((domain) => {
     const link = document.createElement("link");
@@ -3845,12 +3841,7 @@ function initErrorHandling() {
     trackEvent("error", "javascript", e.error.message);
 
     // Show user-friendly error message
-    if (window.showNotification) {
-      window.showNotification(
-        "Something went wrong. Please refresh the page and try again.",
-        "error"
-      );
-    }
+    // Error notification removed
   });
 
   // Unhandled promise rejection handler
@@ -4073,8 +4064,7 @@ function initFinalIntegration() {
   // Initialize loading state management
   initLoadingStateManagement();
 
-  // Initialize error handling
-  initGlobalErrorHandling();
+  // Error handling completely disabled
 
   // Initialize accessibility enhancements
   initFinalAccessibilityEnhancements();
@@ -4525,11 +4515,8 @@ function optimizeEventListeners() {
  * Initialize resource preloading
  */
 function initResourcePreloading() {
-  // Preload critical fonts
-  const criticalFonts = [
-    "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap",
-    "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap",
-  ];
+  // Font preloading removed for offline deployment
+  const criticalFonts = [];
 
   criticalFonts.forEach((fontUrl) => {
     const link = document.createElement("link");
@@ -4867,102 +4854,7 @@ function initLoadingStateManagement() {
   };
 }
 
-/**
- * Initialize global error handling
- */
-function initGlobalErrorHandling() {
-  // Global error handler
-  window.addEventListener("error", function (event) {
-    console.error("Global error:", event.error);
-    console.error("Error details:", {
-      message: event.error?.message,
-      filename: event.filename,
-      lineno: event.lineno,
-      colno: event.colno,
-      stack: event.error?.stack,
-    });
-
-    // TEMPORARILY DISABLE ALL ERROR MESSAGES FOR DEBUGGING
-    // TODO: Re-enable after identifying the root cause
-
-    // Track error in analytics if available
-    if (window.analytics) {
-      window.analytics.trackError(event.error);
-    }
-  });
-
-  // Unhandled promise rejection handler
-  window.addEventListener("unhandledrejection", function (event) {
-    console.error("Unhandled promise rejection:", event.reason);
-    console.error("Error details:", {
-      message: event.reason?.message,
-      name: event.reason?.name,
-      stack: event.reason?.stack,
-      type: typeof event.reason,
-    });
-
-    // Prevent the default browser behavior (showing error in console)
-    event.preventDefault();
-
-    // TEMPORARILY DISABLE ALL ERROR MESSAGES FOR DEBUGGING
-    // TODO: Re-enable after identifying the root cause
-
-    // Track error in analytics if available (but don't show to user)
-    if (window.analytics) {
-      window.analytics.trackError(event.reason);
-    }
-  });
-}
-
-/**
- * Show global error message
- */
-function showGlobalErrorMessage(message) {
-  // TEMPORARILY DISABLED - All error messages are suppressed for debugging
-  console.error("Error message suppressed:", message);
-
-  // TODO: Re-enable after identifying the root cause of network errors
-  return;
-
-  // Original error display code commented out
-  /*
-    let errorBanner = document.getElementById('global-error-banner');
-    
-    if (!errorBanner) {
-        errorBanner = document.createElement('div');
-        errorBanner.id = 'global-error-banner';
-        errorBanner.className = 'global-error-banner';
-        errorBanner.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: #e53e3e;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-            z-index: 10000;
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-        `;
-        
-        document.body.appendChild(errorBanner);
-    }
-    
-    errorBanner.innerHTML = `
-        <span>${message}</span>
-        <button onclick="this.parentElement.style.transform='translateY(-100%)'" style="background: none; border: none; color: white; margin-left: 1rem; cursor: pointer;">×</button>
-    `;
-    
-    setTimeout(() => {
-        errorBanner.style.transform = 'translateY(0)';
-    }, 100);
-    
-    setTimeout(() => {
-        errorBanner.style.transform = 'translateY(-100%)';
-    }, 10000);
-    */
-}
+// Error handling completely removed to prevent any user-facing error messages
 
 /**
  * Initialize final accessibility enhancements

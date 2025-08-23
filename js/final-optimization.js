@@ -53,9 +53,8 @@ class FinalOptimizer {
     optimizeCriticalRenderingPath() {
         // Preload critical resources
         const criticalResources = [
-            { href: 'css/styles.css', as: 'style' },
-            { href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap', as: 'style' },
-            { href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap', as: 'style' }
+            { href: 'css/styles.css', as: 'style' }
+            // External font resources removed for offline deployment
         ];
 
         criticalResources.forEach(resource => {

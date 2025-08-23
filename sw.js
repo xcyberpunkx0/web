@@ -28,18 +28,20 @@ self.addEventListener('install', function(event) {
   );
 });
 
-// Fetch event - serve from cache when possible
+// Fetch event - serve from cache only (offline deployment)
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
       .then(function(response) {
-        // Return cached version or fetch from network
-        return response || fetch(event.request);
-      })
-      .catch(function(error) {
-        console.log('Fetch failed:', error);
-        // Return the request anyway
-        return fetch(event.request);
+        // Return cached version only, no network fallback
+        if (response) {
+          return response;
+        }
+        // For offline deployment, return a basic response for missing resources
+        return new Response('Resource not available offline', {
+          status: 404,
+          statusText: 'Not Found'
+        });
       })
   );
 });
