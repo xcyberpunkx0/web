@@ -1,0 +1,1255 @@
+/* Enhanced Animation System CSS */
+/* Comprehensive animations with performance optimizations and accessibility support */
+
+/* Base animation setup for all animated elements */
+.animate-observed {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-observed.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Entrance Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.animate-fade-down {
+  animation: fadeDown 0.6s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-rotate-in {
+  animation: rotateIn 0.6s ease-out forwards;
+}
+
+/* Micro-interaction Animations */
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(214, 158, 46, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(214, 158, 46, 0.6);
+  }
+}
+
+/* Button Animations */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Card Animations */
+.service-card,
+.team-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.service-card:hover,
+.team-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Input Animations */
+.form-input {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.form-input:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(214, 158, 46, 0.15);
+}
+
+.form-label {
+  transition: all 0.3s ease;
+  transform-origin: left top;
+}
+
+/* Stagger Animation Delays */
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+.animate-delay-6 { animation-delay: 0.6s; }
+.animate-delay-7 { animation-delay: 0.7s; }
+.animate-delay-8 { animation-delay: 0.8s; }
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #d69e2e, #1a365d);
+  z-index: 1000;
+  transition: width 0.1s ease;
+}
+
+/* Loading States */
+.loading-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Focus Animations */
+.focus-ring {
+  outline: 3px solid rgba(214, 158, 46, 0.6);
+  outline-offset: 2px;
+  animation: focusGlow 0.3s ease-out;
+}
+
+@keyframes focusGlow {
+  0% {
+    outline-color: rgba(214, 158, 46, 0);
+  }
+  100% {
+    outline-color: rgba(214, 158, 46, 0.6);
+  }
+}
+
+/* Performance Optimizations */
+.service-card,
+.team-card,
+.hero-slider .slider-slide,
+.btn,
+.nav-menu,
+.modal,
+.faq-answer {
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* Remove will-change after animations complete */
+.service-card:not(:hover),
+.team-card:not(:hover),
+.btn:not(:hover) {
+  will-change: auto;
+}
+
+/* Optimize hover states */
+.service-card:hover,
+.team-card:hover,
+.btn:hover {
+  will-change: transform;
+}
+
+/* GPU acceleration for smooth animations */
+.hero-slider,
+.nav-menu.active,
+.modal.active {
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
+}
+
+/* Hero Section Animations */
+@keyframes heroContentSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroTitleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroSubtitleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroActionsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroSliderFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Services Section Animations */
+@keyframes serviceCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes serviceCardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Pulse animation for interactive elements */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Bounce animation for buttons */
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+/* Fade in animation for general use */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Utility animation classes */
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s;
+}
+
+/* Stagger animation delays */
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+.animate-delay-6 { animation-delay: 0.6s; }
+
+/* Hover animations */
+.hover-lift {
+  transition: transform var(--transition-fast);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-scale {
+  transition: transform var(--transition-fast);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Loading animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* About Section Animations */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes statItemSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes timelineItemSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes credentialSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes progressBar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Animation utility classes for about section */
+.animate-countUp {
+  animation: countUp 0.8s ease-out;
+}
+
+.animate-statItem {
+  animation: statItemSlideIn 0.6s ease-out;
+}
+
+.animate-timelineItem {
+  animation: timelineItemSlideIn 0.6s ease-out;
+}
+
+.animate-credential {
+  animation: credentialSlideIn 0.6s ease-out;
+}
+
+.animate-progressBar {
+  animation: progressBar 1s ease-out;
+}
+
+/* Stagger delays for about section elements */
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+.animate-delay-600 { animation-delay: 0.6s; }
+.animate-delay-700 { animation-delay: 0.7s; }
+.animate-delay-800 { animation-delay: 0.8s; }
+
+/* Accessibility and Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations and transitions for users who prefer reduced motion */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable specific animation classes */
+  .animate-fade-in,
+  .animate-fade-up,
+  .animate-fade-down,
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-slide-up,
+  .animate-scale-in,
+  .animate-rotate-in,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-spin,
+  .loading-pulse,
+  .loading-shimmer {
+    animation: none !important;
+  }
+  
+  /* Disable hover transforms */
+  .btn:hover,
+  .service-card:hover,
+  .team-card:hover,
+  .hover-lift:hover,
+  .hover-scale:hover {
+    transform: none !important;
+  }
+  
+  /* Ensure elements are visible */
+  .animate-observed {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  /* Disable parallax effects */
+  .hero-section {
+    transform: none !important;
+  }
+  
+  /* Disable scroll progress bar animation */
+  .scroll-progress {
+    transition: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn {
+    border: 2px solid currentColor;
+  }
+  
+  .service-card,
+  .team-card {
+    border: 2px solid currentColor;
+  }
+  
+  .form-input:focus {
+    outline: 3px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .scroll-progress {
+    background: linear-gradient(90deg, #f6e05e, #63b3ed);
+  }
+  
+  .loading-shimmer {
+    background: linear-gradient(90deg, #2d3748 25%, #4a5568 50%, #2d3748 75%);
+  }
+}
+
+/* Form Success Message Styles */
+.form-message--success {
+  color: #38a169;
+  background: rgba(56, 161, 105, 0.1);
+  border: 1px solid rgba(56, 161, 105, 0.3);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-message--success i {
+  font-size: 1.2rem;
+}
+
+/* Enhanced Performance Optimizations */
+.service-card,
+.team-card,
+.btn,
+.form-input,
+.nav-link {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Remove will-change after animations complete */
+.service-card:not(:hover):not(.animate-in),
+.team-card:not(:hover):not(.animate-in),
+.btn:not(:hover):not(.loading),
+.form-input:not(:focus),
+.nav-link:not(:hover) {
+  will-change: auto;
+}
+
+/* Magnetic Effect Base Styles */
+.nav-link {
+  transition: transform 0.2s ease-out;
+}
+
+/* Enhanced Ripple Effect */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ripple 0.6s ease-out;
+}
+
+/* Loading Button States */
+.btn.loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Enhanced Focus States */
+.form-input:focus,
+.btn:focus,
+.nav-link:focus {
+  outline: 3px solid rgba(214, 158, 46, 0.6);
+  outline-offset: 2px;
+}
+
+/* Staggered Animation Utilities */
+.stagger-children > * {
+  animation-fill-mode: both;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-children > *:nth-child(n+7) { animation-delay: 0.7s; }
+
+/* Print styles - disable animations */
+@media print {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .animate-observed {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+  .scroll-progress {
+    display: none !important;
+  }
+}/* =
+==================================
+   Team Section Animations
+   =================================== */
+
+/* Team card entrance animations */
+.team-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.team-card:nth-child(1) { animation-delay: 0.1s; }
+.team-card:nth-child(2) { animation-delay: 0.2s; }
+.team-card:nth-child(3) { animation-delay: 0.3s; }
+.team-card:nth-child(4) { animation-delay: 0.4s; }
+.team-card:nth-child(5) { animation-delay: 0.5s; }
+.team-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Team card hover animations */
+.team-card-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(214, 158, 46, 0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: 1;
+}
+
+.team-card:hover .team-card-image::before {
+  transform: translateX(100%);
+}
+
+/* Credential badge animations */
+.credential-badge {
+  transform: scale(0.9);
+  transition: transform var(--transition-fast);
+}
+
+.team-card:hover .credential-badge {
+  transform: scale(1);
+}
+
+.credential-badge:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.credential-badge:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+/* Team modal entrance animation */
+@keyframes teamModalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.team-modal.active .team-modal-container {
+  animation: teamModalSlideIn 0.4s ease-out;
+}
+
+/* Team modal backdrop animation */
+.team-modal-backdrop {
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.team-modal.active .team-modal-backdrop {
+  opacity: 1;
+}
+
+/* Specialization list item animations */
+.team-modal-spec-list li {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+.team-modal-spec-list li:nth-child(1) { animation-delay: 0.1s; }
+.team-modal-spec-list li:nth-child(2) { animation-delay: 0.2s; }
+.team-modal-spec-list li:nth-child(3) { animation-delay: 0.3s; }
+.team-modal-spec-list li:nth-child(4) { animation-delay: 0.4s; }
+.team-modal-spec-list li:nth-child(5) { animation-delay: 0.5s; }
+.team-modal-spec-list li:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Contact item hover animations */
+.team-contact-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-contact-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(26, 54, 93, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.team-contact-item:hover::before {
+  left: 100%;
+}
+
+/* Team card button pulse animation */
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(26, 54, 93, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(26, 54, 93, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(26, 54, 93, 0);
+  }
+}
+
+.team-card:hover .team-card-btn {
+  animation: buttonPulse 1.5s infinite;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .team-card,
+  .team-modal-container,
+  .team-modal-backdrop,
+  .team-modal-spec-list li,
+  .credential-badge {
+    animation: none;
+    transition: none;
+  }
+  
+  .team-card-image::before,
+  .team-contact-item::before {
+    display: none;
+  }
+  
+  .team-card:hover .team-card-btn {
+    animation: none;
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .team-card-overlay {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  .team-contact-btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Focus animations for accessibility */
+.team-card:focus-visible {
+  animation: focusGlow 0.3s ease-out;
+}
+
+@keyframes focusGlow {
+  0% {
+    box-shadow: var(--shadow-md);
+  }
+  50% {
+    box-shadow: var(--shadow-xl), 0 0 0 6px rgba(214, 158, 46, 0.3);
+  }
+  100% {
+    box-shadow: var(--shadow-xl), 0 0 0 3px rgba(214, 158, 46, 0.3);
+  }
+}
+
+/* Loading state animation for team images */
+.team-card-image img {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-card-image img.loaded {
+  opacity: 1;
+}
+
+/* Stagger animation for team grid on scroll */
+.team-grid.animate-in .team-card {
+  animation-play-state: running;
+}
+
+.team-grid:not(.animate-in) .team-card {
+  animation-play-state: paused;
+  opacity: 0;
+  transform: translateY(30px);
+}/*
+ FAQ Section Animations */
+
+/* FAQ Item Entrance Animation */
+.faq-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.faq-item:nth-child(1) { animation-delay: 0.1s; }
+.faq-item:nth-child(2) { animation-delay: 0.2s; }
+.faq-item:nth-child(3) { animation-delay: 0.3s; }
+.faq-item:nth-child(4) { animation-delay: 0.4s; }
+.faq-item:nth-child(5) { animation-delay: 0.5s; }
+.faq-item:nth-child(n+6) { animation-delay: 0.6s; }
+
+/* FAQ Answer Expand Animation */
+.faq-answer {
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer.expanded {
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* FAQ Icon Rotation Animation */
+.faq-question-icon {
+  transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+.faq-question-icon i {
+  transition: transform 0.3s ease-out;
+}
+
+/* FAQ Search Input Animation */
+.faq-search-input {
+  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.faq-search-input:focus {
+  transform: translateY(-1px);
+}
+
+/* FAQ Category Title Animation */
+.faq-category-title {
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-category-title::after {
+  transform: translateX(-100%);
+  animation: slideInRight 0.8s ease-out 0.3s forwards;
+}
+
+/* FAQ Hover Animations */
+.faq-item {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+}
+
+.faq-question {
+  transition: color 0.2s ease-out;
+}
+
+/* FAQ No Results Animation */
+.faq-no-results {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInScale 0.4s ease-out forwards;
+}
+
+.faq-no-results-content i {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Keyframe Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .faq-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .faq-answer {
+    transition: none;
+  }
+  
+  .faq-question-icon {
+    transition: none;
+  }
+  
+  .faq-search-input {
+    transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  }
+  
+  .faq-search-input:focus {
+    transform: none;
+  }
+  
+  .faq-category-title::after {
+    animation: none;
+    transform: translateX(0);
+  }
+  
+  .faq-item:hover {
+    transform: none;
+  }
+  
+  .faq-no-results {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .faq-no-results-content i {
+    animation: none;
+  }
+}/* P
+ayment Form Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Payment step transitions */
+.payment-step {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.step-number {
+  transition: all 0.3s ease;
+}
+
+.progress-step.active .step-number {
+  animation: pulse 0.6s ease-in-out;
+}
+
+/* Form input focus animations */
+.form-input:focus {
+  animation: slideInRight 0.2s ease-out;
+}
+
+/* Button hover animations */
+.btn:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+.btn:active {
+  transform: translateY(0);
+}

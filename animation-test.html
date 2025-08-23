@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation System Test</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 2rem;
+            font-family: Inter, sans-serif;
+            background: #f7fafc;
+        }
+        
+        .test-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .test-card {
+            padding: 1.5rem;
+            background: #1a365d;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .test-button {
+            padding: 0.75rem 1.5rem;
+            background: #d69e2e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        
+        .test-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Animation System Test</h1>
+    
+    <div class="test-section">
+        <h2>Entrance Animations Test</h2>
+        <p>Scroll down to see elements animate in</p>
+        
+        <div class="test-grid">
+            <div class="test-card animate-observed service-card">
+                <h3>Service Card Animation</h3>
+                <p>Should scale in when visible</p>
+            </div>
+            
+            <div class="test-card animate-observed team-card">
+                <h3>Team Card Animation</h3>
+                <p>Should slide up when visible</p>
+            </div>
+            
+            <div class="test-card animate-observed stat-item">
+                <h3>Stat Item Animation</h3>
+                <p>Should fade up when visible</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Micro-interactions Test</h2>
+        
+        <div>
+            <button class="test-button btn">Hover & Click Me</button>
+            <button class="test-button btn btn--primary">Primary Button</button>
+        </div>
+        
+        <div style="margin-top: 1rem;">
+            <input type="text" class="test-input form-input" placeholder="Focus me for animation">
+            <input type="email" class="test-input form-input" placeholder="Email input with validation">
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Staggered Animations Test</h2>
+        <div class="test-grid stagger-children">
+            <div class="test-card animate-observed">Item 1</div>
+            <div class="test-card animate-observed">Item 2</div>
+            <div class="test-card animate-observed">Item 3</div>
+            <div class="test-card animate-observed">Item 4</div>
+            <div class="test-card animate-observed">Item 5</div>
+            <div class="test-card animate-observed">Item 6</div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Reduced Motion Test</h2>
+        <p>Open browser dev tools and set "prefers-reduced-motion: reduce" to test accessibility</p>
+        <div class="test-card animate-observed">
+            This should not animate if reduced motion is enabled
+        </div>
+    </div>
+    
+    <script src="js/animations.js"></script>
+    <script>
+        // Test the animation system
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Animation test page loaded');
+            
+            // Test button interactions
+            const buttons = document.querySelectorAll('.test-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('Button clicked:', this.textContent);
+                });
+            });
+            
+            // Test form validation
+            const emailInput = document.querySelector('input[type="email"]');
+            if (emailInput) {
+                emailInput.addEventListener('input', function() {
+                    console.log('Email validation:', this.checkValidity());
+                });
+            }
+        });
+    </script>
+</body>
+</html>

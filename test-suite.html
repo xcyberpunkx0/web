@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxPro Consulting - Comprehensive Test Suite</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .test-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1a365d, #2d3748);
+            color: white;
+            border-radius: 12px;
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: #f7fafc;
+            border-radius: 12px;
+            border-left: 4px solid #d69e2e;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .test-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .test-button {
+            background: #1a365d;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+        .test-button:hover {
+            background: #2d3748;
+            transform: translateY(-1px);
+        }
+        .test-button:disabled {
+            background: #a0aec0;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .test-results {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #edf2f7;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .result-success { color: #38a169; }
+        .result-warning { color: #d69e2e; }
+        .result-error { color: #e53e3e; }
+        .browser-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .browser-card {
+            text-align: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+        }
+        .browser-card.supported {
+            border-color: #38a169;
+            background: #f0fff4;
+        }
+        .browser-card.partial {
+            border-color: #d69e2e;
+            background: #fffbf0;
+        }
+        .browser-card.unsupported {
+            border-color: #e53e3e;
+            background: #fef5f5;
+        }
+        .device-simulator {
+            border: 2px solid #2d3748;
+            border-radius: 12px;
+            margin: 1rem 0;
+            overflow: hidden;
+            background: #2d3748;
+            padding: 0.5rem;
+        }
+        .device-screen {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .device-controls {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        .status-pass { background: #38a169; }
+        .status-warn { background: #d69e2e; }
+        .status-fail { background: #e53e3e; }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #38a169, #68d391);
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>TaxPro Consulting - Comprehensive Test Suite</h1>
+            <p>Cross-browser compatibility, responsive design, form validation, and accessibility testing</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="overall-progress"></div>
+            </div>
+        </div>
+
+        <!-- Browser Compatibility Testing -->
+        <div class="test-section">
+            <h2>🌐 Browser Compatibility Testing</h2>
+            <p>Test functionality across modern browsers and detect browser-specific issues.</p>
+            
+            <div class="browser-grid" id="browser-grid">
+                <!-- Browser cards will be populated by JavaScript -->
+            </div>
+            
+            <div class="test-card">
+                <h3>Browser Feature Detection</h3>
+                <button class="test-button" onclick="runBrowserTests()">Run Browser Tests</button>
+                <div class="test-results" id="browser-results"></div>
+            </div>
+        </div>
+
+        <!-- Responsive Design Testing -->
+        <div class="test-section">
+            <h2>📱 Responsive Design Testing</h2>
+            <p>Verify responsive behavior on various device sizes and orientations.</p>
+            
+            <div class="device-controls">
+                <button class="test-button" onclick="setDeviceSize('mobile', 375, 667)">Mobile (375x667)</button>
+                <button class="test-button" onclick="setDeviceSize('tablet', 768, 1024)">Tablet (768x1024)</button>
+                <button class="test-button" onclick="setDeviceSize('desktop', 1200, 800)">Desktop (1200x800)</button>
+                <button class="test-button" onclick="testAllBreakpoints()">Test All Breakpoints</button>
+            </div>
+            
+            <div class="device-simulator" id="device-simulator">
+                <div class="device-screen" id="device-screen">
+                    <iframe src="index.html" width="100%" height="400px" id="responsive-iframe"></iframe>
+                </div>
+            </div>
+            
+            <div class="test-card">
+                <h3>Responsive Test Results</h3>
+                <div class="test-results" id="responsive-results"></div>
+            </div>
+        </div>
+
+        <!-- Form Validation Testing -->
+        <div class="test-section">
+            <h2>📝 Form Validation Testing</h2>
+            <p>Test form validation and submission flows for all forms on the site.</p>
+            
+            <div class="test-grid">
+                <div class="test-card">
+                    <h3>Contact Form</h3>
+                    <button class="test-button" onclick="testContactForm()">Test Contact Form</button>
+                    <div class="test-results" id="contact-form-results"></div>
+                </div>
+                
+                <div class="test-card">
+                    <h3>Payment Form</h3>
+                    <button class="test-button" onclick="testPaymentForm()">Test Payment Form</button>
+                    <div class="test-results" id="payment-form-results"></div>
+                </div>
+                
+                <div class="test-card">
+                    <h3>FAQ Search</h3>
+                    <button class="test-button" onclick="testFAQSearch()">Test FAQ Search</button>
+                    <div class="test-results" id="faq-search-results"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accessibility Testing -->
+        <div class="test-section">
+            <h2>♿ Accessibility Testing</h2>
+            <p>Validate accessibility compliance using automated tools and manual checks.</p>
+            
+            <div class="test-grid">
+                <div class="test-card">
+                    <h3>WCAG 2.1 Compliance</h3>
+                    <button class="test-button" onclick="runAccessibilityTests()">Run A11y Tests</button>
+                    <div class="test-results" id="accessibility-results"></div>
+                </div>
+                
+                <div class="test-card">
+                    <h3>Keyboard Navigation</h3>
+                    <button class="test-button" onclick="testKeyboardNavigation()">Test Keyboard Nav</button>
+                    <div class="test-results" id="keyboard-results"></div>
+                </div>
+                
+                <div class="test-card">
+                    <h3>Screen Reader Support</h3>
+                    <button class="test-button" onclick="testScreenReaderSupport()">Test Screen Reader</button>
+                    <div class="test-results" id="screen-reader-results"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Testing -->
+        <div class="test-section">
+            <h2>⚡ Performance Testing</h2>
+            <p>Test loading times, animation performance, and resource optimization.</p>
+            
+            <div class="test-grid">
+                <div class="test-card">
+                    <h3>Page Load Performance</h3>
+                    <button class="test-button" onclick="testPagePerformance()">Test Performance</button>
+                    <div class="test-results" id="performance-results"></div>
+                </div>
+                
+                <div class="test-card">
+                    <h3>Animation Performance</h3>
+                    <button class="test-button" onclick="testAnimationPerformance()">Test Animations</button>
+                    <div class="test-results" id="animation-results"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comprehensive Test Runner -->
+        <div class="test-section">
+            <h2>🚀 Run All Tests</h2>
+            <p>Execute the complete test suite and generate a comprehensive report.</p>
+            
+            <div class="test-grid">
+                <div class="test-card">
+                    <h3>Standard Test Suite</h3>
+                    <button class="test-button" onclick="runAllTests()" id="run-all-button">
+                        Run Complete Test Suite
+                    </button>
+                    <div class="test-results" id="all-tests-results"></div>
+                </div>
+                
+                <div class="test-card">
+                    <h3>Comprehensive Testing</h3>
+                    <button class="test-button" onclick="runComprehensiveTests()" id="run-comprehensive-button" style="background: #d69e2e;">
+                        Run Comprehensive Tests
+                    </button>
+                    <p style="font-size: 0.875rem; color: #666; margin-top: 0.5rem;">
+                        Includes all test suites with detailed analysis and weighted scoring
+                    </p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 1rem; padding: 1rem; background: #f0f8ff; border-radius: 8px; font-size: 0.875rem;">
+                <strong>Keyboard Shortcuts:</strong><br>
+                • Ctrl+Alt+T: Run standard tests<br>
+                • Ctrl+Alt+C: Run comprehensive tests<br>
+                • Ctrl+Alt+A: Run accessibility tests<br>
+                • Ctrl+Alt+B: Run browser tests
+            </div>
+        </div>
+    </div>
+
+    <script src="js/test-suite.js"></script>
+    <script src="js/browser-compatibility-test.js"></script>
+    <script src="js/responsive-design-test.js"></script>
+    <script src="js/form-validation-test.js"></script>
+    <script src="js/accessibility-test.js"></script>
+    <script src="js/comprehensive-test-runner.js"></script>
+    <script src="js/test-validation.js"></script>
+</body>
+</html>

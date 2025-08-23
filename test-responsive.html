@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design Test - TaxPro Consulting</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .test-section {
+            padding: 2rem;
+            margin: 1rem 0;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .test-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .breakpoint-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #1a365d;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="breakpoint-indicator" id="breakpoint-indicator">
+        Desktop
+    </div>
+    
+    <div class="container">
+        <h1>Responsive Design Test</h1>
+        
+        <div class="test-section">
+            <h2>Navigation Test</h2>
+            <p>Resize the window to test mobile navigation behavior.</p>
+            <button class="btn btn--primary" style="min-height: 44px; min-width: 44px;">Touch-Friendly Button</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>Grid Layout Test</h2>
+            <div class="test-grid">
+                <div class="test-card">Card 1</div>
+                <div class="test-card">Card 2</div>
+                <div class="test-card">Card 3</div>
+                <div class="test-card">Card 4</div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Form Test</h2>
+            <form>
+                <div class="form-group">
+                    <label for="test-email" class="form-label">Email</label>
+                    <input type="email" id="test-email" class="form-input" inputmode="email">
+                </div>
+                <div class="form-group">
+                    <label for="test-phone" class="form-label">Phone</label>
+                    <input type="tel" id="test-phone" class="form-input" inputmode="tel">
+                </div>
+                <button type="submit" class="btn btn--primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        function updateBreakpointIndicator() {
+            const indicator = document.getElementById('breakpoint-indicator');
+            const width = window.innerWidth;
+            
+            if (width <= 575) {
+                indicator.textContent = 'Mobile Small';
+            } else if (width <= 767) {
+                indicator.textContent = 'Mobile Large';
+            } else if (width <= 1023) {
+                indicator.textContent = 'Tablet';
+            } else {
+                indicator.textContent = 'Desktop';
+            }
+        }
+        
+        // Update on load and resize
+        updateBreakpointIndicator();
+        window.addEventListener('resize', updateBreakpointIndicator);
+        
+        // Test touch device detection
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+            console.log('Touch device detected');
+        }
+    </script>
+</body>
+</html>

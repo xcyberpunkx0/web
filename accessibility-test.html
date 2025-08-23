@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Test - TaxPro Consulting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-result {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .warning { background: #fff3cd; color: #856404; }
+        .error { background: #f8d7da; color: #721c24; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        .keyboard-nav-test {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .test-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            tabindex: 0;
+        }
+        .test-card:focus {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>TaxPro Consulting - Accessibility Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Skip Links Test</h2>
+        <p>Press Tab to see skip links appear. They should be visible when focused.</p>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <a href="#test-form" class="skip-link">Skip to test form</a>
+    </div>
+    
+    <div class="test-section">
+        <h2>Keyboard Navigation Test</h2>
+        <p>Use Tab, Shift+Tab, and Enter/Space to navigate these elements:</p>
+        <div class="keyboard-nav-test">
+            <div class="test-card" role="button" tabindex="0" aria-label="Test card 1">
+                <h3>Card 1</h3>
+                <p>This is a test card for keyboard navigation.</p>
+            </div>
+            <div class="test-card" role="button" tabindex="0" aria-label="Test card 2">
+                <h3>Card 2</h3>
+                <p>This is another test card.</p>
+            </div>
+            <div class="test-card" role="button" tabindex="0" aria-label="Test card 3">
+                <h3>Card 3</h3>
+                <p>And one more test card.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Form Accessibility Test</h2>
+        <form id="test-form" novalidate>
+            <div class="form-group">
+                <label for="test-name">Name (required) <span class="required">*</span></label>
+                <input type="text" id="test-name" name="name" required aria-describedby="name-error">
+                <div id="name-error" class="form-error" role="alert" aria-live="polite" aria-hidden="true"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="test-email">Email (required) <span class="required">*</span></label>
+                <input type="email" id="test-email" name="email" required aria-describedby="email-error">
+                <div id="email-error" class="form-error" role="alert" aria-live="polite" aria-hidden="true"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="test-message">Message</label>
+                <textarea id="test-message" name="message" rows="4" aria-describedby="message-help"></textarea>
+                <div id="message-help" class="form-help">Optional: Tell us about your needs</div>
+            </div>
+            
+            <button type="submit">Submit Test Form</button>
+        </form>
+    </div>
+    
+    <div class="test-section">
+        <h2>ARIA Live Region Test</h2>
+        <button onclick="announceMessage()">Test Screen Reader Announcement</button>
+        <div id="announcement-region" aria-live="polite" aria-atomic="true" style="position: absolute; left: -10000px;"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Modal Test</h2>
+        <button onclick="openTestModal()">Open Test Modal</button>
+        
+        <div id="test-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; max-width: 400px;">
+                <h3 id="modal-title">Test Modal</h3>
+                <p>This is a test modal for accessibility verification.</p>
+                <button onclick="closeTestModal()">Close Modal</button>
+                <button onclick="closeTestModal()" aria-label="Close modal" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px;">&times;</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Accessibility Test Results</h2>
+        <button onclick="runAccessibilityTests()">Run Accessibility Tests</button>
+        <div id="test-results"></div>
+    </div>
+    
+    <main id="main-content">
+        <div class="test-section">
+            <h2>Main Content</h2>
+            <p>This is the main content area that skip links should navigate to.</p>
+        </div>
+    </main>
+    
+    <script>
+        // Simple accessibility test functions
+        function announceMessage() {
+            const announcer = document.getElementById('announcement-region');
+            announcer.textContent = 'This is a test announcement for screen readers. Time: ' + new Date().toLocaleTimeString();
+            
+            setTimeout(() => {
+                announcer.textContent = '';
+            }, 1000);
+        }
+        
+        function openTestModal() {
+            const modal = document.getElementById('test-modal');
+            modal.style.display = 'block';
+            modal.setAttribute('aria-hidden', 'false');
+            
+            // Focus first focusable element
+            const firstButton = modal.querySelector('button');
+            if (firstButton) {
+                firstButton.focus();
+            }
+            
+            // Store previously focused element
+            window.previouslyFocused = document.activeElement;
+        }
+        
+        function closeTestModal() {
+            const modal = document.getElementById('test-modal');
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden', 'true');
+            
+            // Return focus
+            if (window.previouslyFocused) {
+                window.previouslyFocused.focus();
+            }
+        }
+        
+        // Close modal on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('test-modal');
+                if (modal.style.display === 'block') {
+                    closeTestModal();
+                }
+            }
+        });
+        
+        // Add keyboard support to test cards
+        document.querySelectorAll('.test-card').forEach(card => {
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    alert('Test card activated: ' + card.querySelector('h3').textContent);
+                }
+            });
+            
+            card.addEventListener('click', () => {
+                alert('Test card clicked: ' + card.querySelector('h3').textContent);
+            });
+        });
+        
+        // Simple form validation
+        document.getElementById('test-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('test-name');
+            const email = document.getElementById('test-email');
+            const nameError = document.getElementById('name-error');
+            const emailError = document.getElementById('email-error');
+            
+            let isValid = true;
+            
+            // Validate name
+            if (!name.value.trim()) {
+                nameError.textContent = 'Name is required';
+                nameError.setAttribute('aria-hidden', 'false');
+                name.setAttribute('aria-invalid', 'true');
+                isValid = false;
+            } else {
+                nameError.textContent = '';
+                nameError.setAttribute('aria-hidden', 'true');
+                name.setAttribute('aria-invalid', 'false');
+            }
+            
+            // Validate email
+            if (!email.value.trim()) {
+                emailError.textContent = 'Email is required';
+                emailError.setAttribute('aria-hidden', 'false');
+                email.setAttribute('aria-invalid', 'true');
+                isValid = false;
+            } else if (!email.value.includes('@')) {
+                emailError.textContent = 'Please enter a valid email address';
+                emailError.setAttribute('aria-hidden', 'false');
+                email.setAttribute('aria-invalid', 'true');
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+                emailError.setAttribute('aria-hidden', 'true');
+                email.setAttribute('aria-invalid', 'false');
+            }
+            
+            if (isValid) {
+                alert('Form submitted successfully!');
+            } else {
+                // Focus first invalid field
+                const firstInvalid = document.querySelector('[aria-invalid="true"]');
+                if (firstInvalid) {
+                    firstInvalid.focus();
+                }
+            }
+        });
+        
+        function runAccessibilityTests() {
+            const resultsDiv = document.getElementById('test-results');
+            const tests = [];
+            
+            // Test skip links
+            const skipLinks = document.querySelectorAll('.skip-link');
+            if (skipLinks.length > 0) {
+                tests.push({ type: 'success', message: `Found ${skipLinks.length} skip links` });
+            } else {
+                tests.push({ type: 'error', message: 'No skip links found' });
+            }
+            
+            // Test form labels
+            const inputs = document.querySelectorAll('input, textarea, select');
+            let unlabeledInputs = 0;
+            inputs.forEach(input => {
+                const label = document.querySelector(`label[for="${input.id}"]`);
+                if (!label && !input.getAttribute('aria-label')) {
+                    unlabeledInputs++;
+                }
+            });
+            
+            if (unlabeledInputs === 0) {
+                tests.push({ type: 'success', message: 'All form inputs have labels' });
+            } else {
+                tests.push({ type: 'error', message: `${unlabeledInputs} form inputs missing labels` });
+            }
+            
+            // Test ARIA attributes
+            const modals = document.querySelectorAll('[role="dialog"]');
+            modals.forEach((modal, index) => {
+                if (modal.getAttribute('aria-modal') === 'true') {
+                    tests.push({ type: 'success', message: `Modal ${index + 1} has aria-modal` });
+                } else {
+                    tests.push({ type: 'warning', message: `Modal ${index + 1} missing aria-modal` });
+                }
+            });
+            
+            // Test keyboard navigation
+            const focusableElements = document.querySelectorAll('[tabindex="0"], button, a[href], input, select, textarea');
+            tests.push({ type: 'success', message: `Found ${focusableElements.length} focusable elements` });
+            
+            // Display results
+            resultsDiv.innerHTML = '<h3>Test Results:</h3>' + 
+                tests.map(test => `
+                    <div class="test-result ${test.type}">
+                        ${test.type === 'success' ? '✅' : test.type === 'warning' ? '⚠️' : '❌'} ${test.message}
+                    </div>
+                `).join('');
+        }
+        
+        // Add skip link functionality
+        document.querySelectorAll('.skip-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.setAttribute('tabindex', '-1');
+                    target.focus();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Style skip links
+        const style = document.createElement('style');
+        style.textContent = `
+            .skip-link {
+                position: absolute;
+                top: -40px;
+                left: 6px;
+                background: #007bff;
+                color: white;
+                padding: 8px 16px;
+                text-decoration: none;
+                border-radius: 4px;
+                z-index: 1000;
+                transition: top 0.2s;
+            }
+            .skip-link:focus {
+                top: 6px;
+                outline: 2px solid #ffc107;
+                outline-offset: 2px;
+            }
+            .form-error {
+                color: #dc3545;
+                font-size: 14px;
+                margin-top: 4px;
+            }
+            .form-error[aria-hidden="true"] {
+                display: none;
+            }
+            .required {
+                color: #dc3545;
+            }
+            input[aria-invalid="true"], textarea[aria-invalid="true"] {
+                border-color: #dc3545;
+                box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
