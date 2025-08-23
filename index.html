@@ -27,10 +27,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" onerror="console.warn('Google Fonts failed to load')">
     
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" onerror="console.warn('Font Awesome CDN failed to load')">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css" data-critical>
@@ -829,18 +829,43 @@
         </div>
     </footer>
     
+    <!-- Debug Helper (Development Only) -->
+    <script>
+        // Only load debug helper in development
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('dev')) {
+            const debugScript = document.createElement('script');
+            debugScript.src = 'js/debug-helper.js';
+            debugScript.onerror = function() { console.warn('Debug helper failed to load'); };
+            document.head.appendChild(debugScript);
+        }
+    </script>
+    
+    <!-- Resource Loading Error Handler -->
+    <script>
+        // Handle resource loading errors without showing user messages
+        window.addEventListener('error', function(e) {
+            if (e.target !== window) {
+                // This is a resource loading error (script, link, img, etc.)
+                console.warn('Resource failed to load:', e.target.src || e.target.href);
+                // Don't show error to user for resource loading failures
+                e.preventDefault();
+                return false;
+            }
+        }, true);
+    </script>
+    
     <!-- Performance Optimization Scripts -->
-    <script src="js/performance.js" data-critical></script>
-    <script src="js/minification.js"></script>
+    <script src="js/performance.js" data-critical onerror="console.warn('performance.js failed to load')"></script>
+    <script src="js/minification.js" onerror="console.warn('minification.js failed to load')"></script>
     
     <!-- JavaScript Files -->
-    <script src="js/accessibility.js" data-critical></script>
-    <script src="js/main.js" data-critical></script>
-    <script src="js/animations.js"></script>
-    <script src="js/form-validation.js"></script>
+    <script src="js/accessibility.js" data-critical onerror="console.warn('accessibility.js failed to load')"></script>
+    <script src="js/main.js" data-critical onerror="console.warn('main.js failed to load')"></script>
+    <script src="js/animations.js" onerror="console.warn('animations.js failed to load')"></script>
+    <script src="js/form-validation.js" onerror="console.warn('form-validation.js failed to load')"></script>
     
     <!-- Testing Scripts (Development Environment) -->
-    <script src="js/accessibility-test.js"></script>
+    <script src="js/accessibility-test.js" onerror="console.warn('accessibility-test.js failed to load')"></script>
     <script>
         // Load comprehensive testing scripts only in development
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.search.includes('test')) {
@@ -866,13 +891,13 @@
     </script>
     
     <!-- Integration Test Suite -->
-    <script src="js/integration-test.js"></script>
+    <script src="js/integration-test.js" onerror="console.warn('integration-test.js failed to load')"></script>
     
     <!-- Hero Interactive Features -->
-    <script src="js/hero-interactive.js"></script>
+    <script src="js/hero-interactive.js" onerror="console.warn('hero-interactive.js failed to load')"></script>
     
     <!-- Final Optimization -->
-    <script src="js/final-optimization.js"></script>
+    <script src="js/final-optimization.js" onerror="console.warn('final-optimization.js failed to load')"></script>
     
     <!-- Service Worker Registration -->
     <script>
