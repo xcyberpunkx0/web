@@ -1,4 +1,4 @@
-// Main JavaScript file for TaxPro Consulting Website
+// Main JavaScript file for Bliss Bridge Properties Website
 // Core functionality and interactions
 
 // Mobile and responsive utilities
@@ -741,34 +741,34 @@ function initHeroSlider() {
   // Slider data - service highlights
   const sliderData = [
     {
-      icon: "fas fa-file-invoice-dollar",
-      title: "Tax Filing Services",
+      icon: "fas fa-building",
+      title: "Investment Property Analysis",
       description:
-        "Professional tax preparation and filing for individuals and businesses with maximum deductions.",
+        "Comprehensive market analysis and investment property evaluation to maximize your returns.",
     },
     {
       icon: "fas fa-chart-line",
-      title: "Business Advisory",
+      title: "Market Research",
       description:
-        "Strategic business consulting to help you make informed financial decisions and grow your business.",
+        "In-depth market research and trend analysis to help you make informed real estate decisions.",
     },
     {
-      icon: "fas fa-calculator",
-      title: "Financial Planning",
+      icon: "fas fa-home",
+      title: "Residential Consulting",
       description:
-        "Comprehensive financial planning services to secure your financial future and achieve your goals.",
+        "Expert guidance for buying, selling, and investing in residential properties.",
     },
     {
-      icon: "fas fa-shield-alt",
-      title: "Tax Compliance",
+      icon: "fas fa-city",
+      title: "Commercial Real Estate",
       description:
-        "Ensure full compliance with tax regulations and avoid penalties with our expert guidance.",
+        "Specialized consulting for commercial property investments and portfolio management.",
     },
     {
       icon: "fas fa-handshake",
       title: "Personalized Service",
       description:
-        "Dedicated one-on-one consultation tailored to your specific tax and financial needs.",
+        "Dedicated one-on-one consultation tailored to your specific real estate investment goals.",
     },
   ];
 
@@ -1033,55 +1033,55 @@ function initServicesShowcase() {
   // Services data structure
   const servicesData = [
     {
-      id: "individual-tax-filing",
-      title: "Individual Tax Filing",
+      id: "residential-consulting",
+      title: "Residential Property Consulting",
       description:
-        "Professional tax preparation and filing services for individuals with maximum deductions and credits.",
-      icon: "fas fa-user-check",
+        "Expert guidance for buying, selling, and investing in residential properties with market insights.",
+      icon: "fas fa-home",
       features: [
-        "Personal income tax returns",
-        "Tax planning and optimization",
-        "Deduction maximization",
-        "Electronic filing and tracking",
-        "Year-round tax support",
+        "Property market analysis",
+        "Investment opportunity assessment",
+        "Buyer and seller representation",
+        "Neighborhood evaluation",
+        "Price negotiation strategies",
       ],
       details:
-        "Our individual tax filing service ensures you receive every deduction and credit you're entitled to. We handle all forms of personal income including W-2s, 1099s, investment income, rental properties, and self-employment income. Our certified professionals stay current with tax law changes to maximize your refund while ensuring full compliance.",
-      price: "Starting at $150",
-    },
-    {
-      id: "business-tax-services",
-      title: "Business Tax Services",
-      description:
-        "Comprehensive tax solutions for businesses of all sizes, from startups to established corporations.",
-      icon: "fas fa-building",
-      features: [
-        "Corporate tax returns",
-        "Partnership and LLC filings",
-        "Quarterly tax planning",
-        "Business expense optimization",
-        "Multi-state tax compliance",
-      ],
-      details:
-        "We provide complete business tax services including corporate returns, partnership filings, and LLC tax preparation. Our team helps optimize your business structure for tax efficiency, manages quarterly payments, and ensures compliance across multiple jurisdictions. We work with businesses from startups to established corporations.",
+        "Our residential consulting service provides comprehensive guidance for all your residential real estate needs. We analyze market trends, evaluate properties, and help you make informed decisions whether you're buying your first home or building an investment portfolio.",
       price: "Starting at $500",
     },
     {
-      id: "tax-planning-strategy",
-      title: "Tax Planning & Strategy",
+      id: "commercial-real-estate",
+      title: "Commercial Real Estate",
       description:
-        "Strategic tax planning to minimize your tax liability and maximize your financial efficiency.",
-      icon: "fas fa-chess-knight",
+        "Specialized consulting for commercial property investments and portfolio management strategies.",
+      icon: "fas fa-building",
       features: [
-        "Year-round tax planning",
-        "Investment tax strategies",
-        "Retirement planning optimization",
-        "Estate and gift tax planning",
-        "Tax-efficient business structures",
+        "Commercial property analysis",
+        "Investment portfolio management",
+        "Lease negotiation support",
+        "Market trend analysis",
+        "ROI optimization strategies",
       ],
       details:
-        "Our strategic tax planning services help you minimize tax liability through careful planning and optimization. We analyze your financial situation to identify opportunities for tax savings, plan for major life events, and structure investments and business activities for maximum tax efficiency.",
-      price: "Starting at $300",
+        "We provide complete commercial real estate services including property analysis, investment strategies, and portfolio management. Our team helps optimize your commercial investments, manages due diligence processes, and ensures maximum returns on your commercial real estate ventures.",
+      price: "Starting at $1,500",
+    },
+    {
+      id: "investment-analysis",
+      title: "Investment Property Analysis",
+      description:
+        "Comprehensive analysis and evaluation of investment properties to maximize your returns.",
+      icon: "fas fa-chart-line",
+      features: [
+        "Cash flow analysis",
+        "Market value assessment",
+        "Risk evaluation",
+        "ROI projections",
+        "Investment strategy development",
+      ],
+      details:
+        "Our investment analysis services help you identify profitable real estate opportunities through detailed financial modeling and market research. We analyze cash flows, assess risks, and develop customized investment strategies to maximize your real estate portfolio returns.",
+      price: "Starting at $750",
     },
     {
       id: "bookkeeping-accounting",
@@ -1119,19 +1119,19 @@ function initServicesShowcase() {
     },
     {
       id: "audit-representation",
-      title: "Audit Representation",
+      title: "Market Research & Analytics",
       description:
-        "Professional representation and support during IRS audits and tax disputes.",
-      icon: "fas fa-shield-alt",
+        "In-depth market research and data analytics to guide your real estate investment decisions.",
+      icon: "fas fa-chart-bar",
       features: [
-        "IRS audit representation",
-        "State tax audit support",
-        "Tax dispute resolution",
-        "Penalty abatement assistance",
-        "Compliance review and correction",
+        "Comprehensive market reports",
+        "Comparative market analysis",
+        "Trend forecasting",
+        "Demographic analysis",
+        "Investment opportunity identification",
       ],
       details:
-        "If you're facing an IRS audit or tax dispute, our experienced professionals will represent you throughout the process. We handle all communications with tax authorities, prepare necessary documentation, and work to resolve issues efficiently while protecting your interests.",
+        "Our market research services provide detailed insights into local and regional real estate markets. We analyze trends, demographics, and economic indicators to help you identify the best investment opportunities and make data-driven real estate decisions.",
       price: "Starting at $400",
     },
   ];
@@ -1655,88 +1655,88 @@ function initTeamSection() {
     {
       id: "sarah-johnson",
       name: "Sarah Johnson",
-      title: "Senior Tax Partner & CPA",
+      title: "Senior Real Estate Partner & Broker",
       image: "images/team/sarah-johnson.jpg",
-      credentials: ["CPA", "MBA Finance", "Enrolled Agent"],
-      specializations: ["Corporate Tax", "International Tax", "Tax Planning"],
-      bio: "Sarah brings over 15 years of experience in tax consulting and business advisory services. She specializes in complex corporate tax matters and international tax compliance, helping businesses navigate the ever-changing tax landscape.",
-      email: "sarah.johnson@taxproconsulting.com",
+      credentials: ["Licensed Broker", "MBA Real Estate", "CCIM"],
+      specializations: ["Commercial Real Estate", "Investment Analysis", "Portfolio Management"],
+      bio: "Sarah brings over 15 years of experience in real estate consulting and investment advisory services. She specializes in complex commercial real estate transactions and investment portfolio optimization, helping clients maximize their real estate returns.",
+      email: "sarah.johnson@blissbridgeproperties.com",
       phone: "(123) 456-7891",
       linkedin: "#",
     },
     {
       id: "michael-chen",
       name: "Michael Chen",
-      title: "Tax Manager & Business Advisor",
+      title: "Investment Analyst & Property Manager",
       image: "images/team/michael-chen.jpg",
-      credentials: ["CPA", "CFP", "QuickBooks ProAdvisor"],
+      credentials: ["Licensed Realtor", "CRE", "Property Management Certified"],
       specializations: [
-        "Small Business Tax",
-        "Financial Planning",
-        "Bookkeeping",
+        "Residential Investment",
+        "Market Analysis",
+        "Property Management",
       ],
-      bio: "Michael focuses on helping small and medium-sized businesses optimize their tax strategies and financial operations. With 12 years of experience, he provides comprehensive business advisory services.",
-      email: "michael.chen@taxproconsulting.com",
+      bio: "Michael focuses on helping investors identify and manage profitable residential real estate opportunities. With 12 years of experience, he provides comprehensive investment analysis and property management services.",
+      email: "michael.chen@blissbridgeproperties.com",
       phone: "(123) 456-7892",
       linkedin: "#",
     },
     {
       id: "jennifer-martinez",
       name: "Jennifer Martinez",
-      title: "Individual Tax Specialist",
+      title: "Residential Real Estate Specialist",
       image: "images/team/jennifer-martinez.jpg",
-      credentials: ["CPA", "CTEC", "IRS Annual Filing Season Program"],
+      credentials: ["Licensed Realtor", "ABR", "First-Time Buyer Specialist"],
       specializations: [
-        "Individual Tax Returns",
-        "Tax Resolution",
-        "Audit Representation",
+        "Residential Sales",
+        "First-Time Buyers",
+        "Market Analysis",
       ],
-      bio: "Jennifer specializes in individual tax preparation and resolution services. She has successfully represented hundreds of clients in IRS audits and helped resolve complex tax issues.",
-      email: "jennifer.martinez@taxproconsulting.com",
+      bio: "Jennifer specializes in residential real estate transactions and first-time buyer guidance. She has successfully helped hundreds of clients navigate the home buying and selling process.",
+      email: "jennifer.martinez@blissbridgeproperties.com",
       phone: "(123) 456-7893",
       linkedin: "#",
     },
     {
       id: "david-thompson",
       name: "David Thompson",
-      title: "Senior Accountant",
+      title: "Senior Market Analyst",
       image: "images/team/david-thompson.jpg",
-      credentials: ["CPA", "CMA", "Advanced QuickBooks Certification"],
+      credentials: ["Licensed Appraiser", "MAI", "Advanced Analytics Certification"],
       specializations: [
-        "Bookkeeping",
-        "Financial Statements",
-        "Payroll Services",
+        "Property Valuation",
+        "Market Research",
+        "Investment Analysis",
       ],
-      bio: "David manages our bookkeeping and accounting services division. His attention to detail and expertise in various accounting software platforms ensures accurate financial records for our clients.",
-      email: "david.thompson@taxproconsulting.com",
+      bio: "David manages our market research and property valuation division. His attention to detail and expertise in various analytical platforms ensures accurate property assessments for our clients.",
+      email: "david.thompson@blissbridgeproperties.com",
       phone: "(123) 456-7894",
       linkedin: "#",
     },
     {
       id: "lisa-rodriguez",
       name: "Lisa Rodriguez",
-      title: "Tax Associate & Client Relations",
+      title: "Client Relations & Transaction Coordinator",
       image: "images/team/lisa-rodriguez.jpg",
-      credentials: ["EA", "CTEC", "Customer Service Excellence Certification"],
-      specializations: ["Tax Preparation", "Client Support", "Tax Education"],
-      bio: "Lisa ensures our clients receive exceptional service throughout their tax preparation process. She specializes in client education and making complex tax concepts easy to understand.",
-      email: "lisa.rodriguez@taxproconsulting.com",
+      credentials: ["Licensed Realtor", "Transaction Coordinator Certified", "Customer Service Excellence"],
+      specializations: ["Client Support", "Transaction Management", "Real Estate Education"],
+      bio: "Lisa ensures our clients receive exceptional service throughout their real estate transactions. She specializes in client education and making complex real estate processes easy to understand.",
+      email: "lisa.rodriguez@blissbridgeproperties.com",
       phone: "(123) 456-7895",
       linkedin: "#",
     },
     {
       id: "robert-kim",
       name: "Robert Kim",
-      title: "Business Tax Consultant",
+      title: "Commercial Real Estate Consultant",
       image: "images/team/robert-kim.jpg",
-      credentials: ["CPA", "MST", "Business Valuation Certification"],
+      credentials: ["Licensed Broker", "CCIM", "Commercial Property Valuation"],
       specializations: [
-        "Business Tax Planning",
-        "Entity Selection",
-        "Succession Planning",
+        "Commercial Investment",
+        "Property Development",
+        "Portfolio Strategy",
       ],
-      bio: "Robert advises businesses on tax-efficient structures and succession planning. His expertise in business valuation and entity selection helps clients make informed strategic decisions.",
-      email: "robert.kim@taxproconsulting.com",
+      bio: "Robert advises clients on commercial real estate investments and development opportunities. His expertise in property valuation and investment strategy helps clients make informed commercial real estate decisions.",
+      email: "robert.kim@blissbridgeproperties.com",
       phone: "(123) 456-7896",
       linkedin: "#",
     },
@@ -2081,60 +2081,60 @@ function initFAQSection() {
   // FAQ data structure organized by categories
   const faqData = [
     {
-      category: "Tax Filing",
+      category: "Property Investment",
       questions: [
         {
-          id: "tax-deadline",
-          question: "When is the tax filing deadline?",
+          id: "investment-timeline",
+          question: "How long does it take to find a good investment property?",
           answer:
-            "The federal tax filing deadline is typically April 15th each year. However, if April 15th falls on a weekend or holiday, the deadline is extended to the next business day. We recommend filing early to avoid last-minute issues and to receive your refund sooner.",
+            "Finding the right investment property typically takes 2-6 months, depending on your criteria and market conditions. We recommend being patient and selective to ensure you find properties that meet your investment goals and provide strong returns.",
         },
         {
           id: "required-documents",
-          question: "What documents do I need to bring for tax filing?",
+          question: "What documents do I need for property investment analysis?",
           answer:
-            "You should bring all relevant tax documents including W-2s from employers, 1099 forms for other income, receipts for deductible expenses, previous year's tax return, Social Security cards for all family members, and any other income or deduction documentation. We provide a comprehensive checklist when you schedule your appointment.",
+            "You should bring financial statements, pre-approval letters, investment goals, current portfolio information, and any specific property details you're considering. We provide a comprehensive checklist when you schedule your consultation to ensure we have everything needed for thorough analysis.",
         },
         {
-          id: "refund-timeline",
-          question: "How long does it take to receive my tax refund?",
+          id: "roi-expectations",
+          question: "What kind of return on investment should I expect?",
           answer:
-            "If you file electronically and choose direct deposit, you can typically expect your refund within 21 days. Paper returns take 6-8 weeks to process. We provide tracking information so you can monitor your refund status throughout the process.",
+            "ROI varies by property type, location, and market conditions. Typically, rental properties generate 6-12% annual returns, while fix-and-flip projects can yield 15-25%. We analyze each opportunity individually to provide realistic return projections based on current market data.",
         },
         {
-          id: "amended-returns",
-          question: "Can you help me file an amended tax return?",
+          id: "market-analysis",
+          question: "How do you conduct market analysis for properties?",
           answer:
-            "Yes, we can help you file Form 1040X to amend your tax return if you need to make corrections or claim additional deductions. Amended returns typically take 8-12 weeks to process, and we'll guide you through the entire process to ensure accuracy.",
+            "We use comprehensive data analysis including comparable sales, rental rates, demographic trends, economic indicators, and future development plans. Our analysis includes both current market conditions and projected trends to help you make informed investment decisions.",
         },
       ],
     },
     {
-      category: "Business Services",
+      category: "Real Estate Services",
       questions: [
         {
-          id: "business-structure",
-          question: "What business structure is best for tax purposes?",
+          id: "property-types",
+          question: "What types of properties do you specialize in?",
           answer:
-            "The best business structure depends on your specific situation, including income level, number of owners, liability concerns, and growth plans. We offer consultations to analyze your needs and recommend whether an LLC, S-Corp, C-Corp, or partnership would be most beneficial for your tax situation.",
+            "We specialize in residential investment properties, commercial real estate, multi-family units, and development opportunities. Our expertise covers single-family homes, condos, apartment buildings, office spaces, retail properties, and land development projects.",
         },
         {
-          id: "quarterly-taxes",
-          question: "Do I need to pay quarterly estimated taxes?",
+          id: "market-coverage",
+          question: "Which markets do you cover?",
           answer:
-            "If you expect to owe $1,000 or more in taxes for the year, you generally need to make quarterly estimated tax payments. This applies to self-employed individuals, business owners, and those with significant investment income. We can help you calculate and set up your quarterly payments.",
+            "We provide consulting services across multiple metropolitan areas and have partnerships with local experts in emerging markets. Our primary focus areas include major urban centers and high-growth suburban markets with strong investment potential.",
         },
         {
-          id: "business-deductions",
-          question: "What business expenses can I deduct?",
+          id: "property-management",
+          question: "Do you offer property management services?",
           answer:
-            "Common business deductions include office supplies, equipment, travel expenses, meals (50% deductible), professional services, insurance, and home office expenses. We review all your business activities to identify every legitimate deduction and ensure you're maximizing your tax savings.",
+            "Yes, we provide comprehensive property management services including tenant screening, rent collection, maintenance coordination, and financial reporting. We can also recommend trusted property management partners in markets where we don't directly provide these services.",
         },
         {
-          id: "bookkeeping-frequency",
-          question: "How often should I update my business books?",
+          id: "financing-assistance",
+          question: "Can you help with financing and mortgage options?",
           answer:
-            "We recommend updating your books monthly to maintain accurate financial records and make tax planning easier. Regular bookkeeping helps you track cash flow, prepare for tax obligations, and make informed business decisions. We offer monthly bookkeeping services to keep your records current.",
+            "We work with a network of lenders who specialize in investment properties and can help you explore various financing options including conventional loans, portfolio loans, and alternative financing. We'll help you understand the best financing strategy for your investment goals.",
         },
       ],
     },
@@ -2143,56 +2143,56 @@ function initFAQSection() {
       questions: [
         {
           id: "service-cost",
-          question: "How much do your services cost?",
+          question: "How much do your consulting services cost?",
           answer:
-            "Our pricing varies based on the complexity of your tax situation and the services you need. Individual tax returns start at $150, business returns start at $500, and ongoing services like bookkeeping start at $200/month. We provide detailed quotes after reviewing your specific needs.",
+            "Our pricing varies based on the scope and complexity of your real estate needs. Residential consultations start at $500, commercial analysis starts at $1,500, and ongoing portfolio management starts at $300/month. We provide detailed quotes after reviewing your specific requirements.",
         },
         {
           id: "consultation-process",
           question: "What happens during the initial consultation?",
           answer:
-            "During your initial consultation, we review your financial situation, discuss your goals, and identify opportunities for tax savings. We explain our services, provide a detailed quote, and answer all your questions. Initial consultations are typically 30-60 minutes and help us understand how we can best serve you.",
+            "During your initial consultation, we review your investment goals, analyze your financial situation, and identify suitable property opportunities. We explain our services, provide market insights, and answer all your questions. Initial consultations are typically 60-90 minutes.",
         },
         {
-          id: "year-round-support",
-          question: "Do you provide support throughout the year?",
+          id: "ongoing-support",
+          question: "Do you provide ongoing support after purchase?",
           answer:
-            "Yes, we provide year-round support to all our clients. This includes answering tax questions, helping with tax planning, providing quarterly check-ins, and being available for any tax-related issues that arise. We believe in building long-term relationships with our clients.",
+            "Yes, we provide ongoing support including market updates, portfolio reviews, refinancing opportunities, and exit strategy planning. We believe in building long-term relationships and helping you optimize your real estate investments over time.",
         },
         {
           id: "remote-services",
           question: "Can you provide services remotely?",
           answer:
-            "Absolutely! We offer secure remote services including virtual consultations, electronic document sharing, and online meetings. Our secure client portal allows you to safely upload documents and communicate with our team from anywhere. Many of our clients prefer the convenience of remote service.",
+            "Absolutely! We offer virtual consultations, online market analysis, and digital property reviews. Our secure client portal allows you to access reports, communicate with our team, and track your investments from anywhere. Many clients prefer our hybrid service model.",
         },
       ],
     },
     {
-      category: "Audit & Compliance",
+      category: "Market & Analysis",
       questions: [
         {
-          id: "audit-representation",
-          question: "What if I get audited by the IRS?",
+          id: "market-timing",
+          question: "Is now a good time to invest in real estate?",
           answer:
-            "If you're selected for an audit, we provide full representation services. We handle all communications with the IRS, prepare necessary documentation, and represent you throughout the audit process. Our goal is to resolve the audit efficiently while protecting your interests and minimizing any additional tax liability.",
+            "Real estate markets vary by location and property type. We analyze current market conditions, interest rates, inventory levels, and economic indicators to help you determine the best timing for your specific investment strategy and target markets.",
         },
         {
-          id: "audit-prevention",
-          question: "How can I reduce my chances of being audited?",
+          id: "risk-assessment",
+          question: "How do you assess investment risks?",
           answer:
-            "While audits can be random, you can reduce your risk by filing accurate returns, keeping detailed records, avoiding excessive deductions relative to your income, and filing on time. We ensure all returns are accurate and well-documented to minimize audit risk.",
+            "We conduct comprehensive risk analysis including market volatility, location factors, property condition, tenant stability, and economic trends. We provide detailed risk assessments and mitigation strategies to help you make informed investment decisions.",
         },
         {
-          id: "tax-compliance",
-          question: "How do you ensure tax compliance?",
+          id: "market-research",
+          question: "What kind of market research do you provide?",
           answer:
-            "We stay current with all tax law changes, use professional tax software, implement multiple review processes, and maintain continuing education certifications. Every return is reviewed by a senior tax professional before filing to ensure accuracy and compliance with current tax laws.",
+            "Our market research includes demographic analysis, economic indicators, development plans, comparable sales data, rental market trends, and growth projections. We provide detailed reports with actionable insights for your investment decisions.",
         },
         {
-          id: "penalty-relief",
-          question: "Can you help with tax penalties and interest?",
+          id: "due-diligence",
+          question: "What does your due diligence process include?",
           answer:
-            "Yes, we can help you request penalty abatement and work with tax authorities to resolve outstanding issues. We analyze your situation to determine if you qualify for penalty relief and handle all communications with the IRS or state tax agencies on your behalf.",
+            "Our due diligence process covers property inspections, financial analysis, legal review, market comparisons, zoning verification, and environmental assessments. We ensure you have complete information before making any investment decisions.",
         },
       ],
     },

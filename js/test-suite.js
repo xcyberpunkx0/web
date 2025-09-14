@@ -1,4 +1,4 @@
-// Comprehensive Testing Suite for TaxPro Consulting Website
+// Comprehensive Testing Suite for Bliss Bridge Properties Website
 // Tests browser compatibility, responsive design, form validation, and accessibility
 
 class ComprehensiveTestSuite {
